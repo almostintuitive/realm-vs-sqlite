@@ -26,9 +26,11 @@ class SqliteViewController: UIViewController {
     
     db.open()
     
+    db.beginTransaction()
+    
     db.executeStatements("drop table RandomNumber")
     
-    let sql_stmt = "CREATE TABLE RandomNumber (ID INTEGER PRIMARY KEY AUTOINCREMENT, Number1 INTEGER)"
+    let sql_stmt = "CREATE TABLE RandomNumber (ID INTEGER PRIMARY KEY, Number1 INTEGER)"
     if !db.executeStatements(sql_stmt) {
       println("Error: \(db.lastErrorMessage())")
     }
@@ -36,13 +38,15 @@ class SqliteViewController: UIViewController {
     measure("writing on realm", { finish in
       
       for index in 1 ... 100000 {
-        let insertSQL = "INSERT INTO RandomNumber (Number1) VALUES ('\(index)')"
+        let insertSQL = "INSERT INTO RandomNumber (id, Number1) VALUES ('\(index)', '\(index)')"
         
         let result = db.executeUpdate(insertSQL,
           withArgumentsInArray: nil)
       }
       finish()
     })
+    
+    db.commit()
     
     let rs = db.executeQuery("select count(*) as count from RandomNumber", withArgumentsInArray: nil)
     rs.next()
