@@ -1,3 +1,4 @@
 use_frameworks!
-pod 'SQLite.swift', git: 'https://github.com/stephencelis/SQLite.swift.git'
+
 pod 'RealmSwift'
+pod 'FMDB', :git => 'https://github.com/robertmryan/fmdb.git'

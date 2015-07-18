@@ -21,20 +21,23 @@ class RealmViewController: UIViewController {
     }
     
     measure("writing on realm", { finish in
-      realm.write { () -> Void in
-        autoreleasepool({ () -> () in
-          for index in 1 ... 100000 {
-            let rand = RandomNumber()
-            rand.id = Int64(index)
-            rand.number1 = Int64(index)
-            realm.add(rand, update: false)
-          }
-        })
-        
-      }
+      
+      realm.beginWrite()
+      autoreleasepool({ () -> () in
+        for index in 1 ... 100000 {
+          let rand = RandomNumber()
+          rand.id = Int64(index)
+          rand.number1 = Int64(index)
+          realm.add(rand, update: false)
+        }
+      })
+      realm.commitWrite()
+      
+
       finish()
     })
     
+    println(realm.objects(RandomNumber).count)
     
   }
 

@@ -1,31 +1,31 @@
 PODS:
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
+    - FMDB/common
   - Realm (0.93.2):
     - Realm/Headers (= 0.93.2)
   - Realm/Headers (0.93.2)
   - RealmSwift (0.93.2):
     - Realm (= 0.93.2)
-  - SQLite.swift (0.1.0.pre):
-    - SQLite.swift/Library (= 0.1.0.pre)
-  - SQLite.swift/Core (0.1.0.pre)
-  - SQLite.swift/Library (0.1.0.pre):
-    - SQLite.swift/Core
 
 DEPENDENCIES:
+  - FMDB (from `https://github.com/robertmryan/fmdb.git`)
   - RealmSwift
-  - SQLite.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
 
 EXTERNAL SOURCES:
-  SQLite.swift:
-    :git: https://github.com/stephencelis/SQLite.swift.git
+  FMDB:
+    :git: https://github.com/robertmryan/fmdb.git
 
 CHECKOUT OPTIONS:
-  SQLite.swift:
-    :commit: 89d16192bb73bf179c08c30227fbd9e52be6bf32
-    :git: https://github.com/stephencelis/SQLite.swift.git
+  FMDB:
+    :commit: b45874924a0b8240abf3f7715af57fc5158616c0
+    :git: https://github.com/robertmryan/fmdb.git
 
 SPEC CHECKSUMS:
+  FMDB: 8e59e93d20d76d0b135db26ecc83ae88d016076d
   Realm: 2fdd0ae74f730e190384e0338d8a0d3654df8220
   RealmSwift: 231b064da9f98b1c4f325fe1f1cb8756aae2b8d6
-  SQLite.swift: 6e05cc2b8efb0e91911e9cfb93551dd682b25843
 
 COCOAPODS: 0.37.2
