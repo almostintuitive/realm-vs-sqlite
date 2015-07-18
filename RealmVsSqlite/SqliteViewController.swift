@@ -33,12 +33,15 @@ class SqliteViewController: UIViewController {
       t.column(number5)
     }
     
+    db.transaction(.Deferred)
     measure("writing on realm", { finish in
       for index in 1 ... 100000 {
         numbers.insert(id <- Int64(index), number1 <- Int64(index))
       }
       finish()
     })
+    
+    db.commit(all: true)
 
     
 
