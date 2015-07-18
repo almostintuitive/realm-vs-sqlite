@@ -26,27 +26,30 @@ class SqliteViewController: UIViewController {
     
     db.open()
     
-    db.beginTransaction()
     
     db.executeStatements("drop table RandomNumber")
     
-    let sql_stmt = "CREATE TABLE RandomNumber (ID INTEGER PRIMARY KEY, Number1 INTEGER)"
-    if !db.executeStatements(sql_stmt) {
-      println("Error: \(db.lastErrorMessage())")
-    }
-    
-    measure("writing on realm", { finish in
+    measure("writing on sqlite", { finish in
       
-      for index in 1 ... 100000 {
-        let insertSQL = "INSERT INTO RandomNumber (id, Number1) VALUES ('\(index)', '\(index)')"
-        
-        let result = db.executeUpdate(insertSQL,
-          withArgumentsInArray: nil)
+      db.beginTransaction()
+      
+      let sql_stmt = "CREATE TABLE RandomNumber (ID INTEGER PRIMARY KEY, Number1 INTEGER, Number2 INTEGER, Number3 INTEGER, Number4 INTEGER, Number5 INTEGER, Number6 INTEGER, Number7 INTEGER, Number8 INTEGER)"
+      if !db.executeStatements(sql_stmt) {
+        println("Error: \(db.lastErrorMessage())")
       }
+      
+
+      for index in 1 ... 100000 {
+        let insertSQL = "INSERT INTO RandomNumber (id, Number1, Number2, Number3, Number4, Number5, Number6, Number7, Number8) VALUES ('\(index)', '\(index)', '\(index)', '\(index)', '\(index)', '\(index)', '\(index)', '\(index)')"
+        
+        let result = db.executeUpdate(insertSQL, withArgumentsInArray: nil)
+      }
+      
+      db.commit()
+
       finish()
     })
     
-    db.commit()
     
     let rs = db.executeQuery("select count(*) as count from RandomNumber", withArgumentsInArray: nil)
     rs.next()
