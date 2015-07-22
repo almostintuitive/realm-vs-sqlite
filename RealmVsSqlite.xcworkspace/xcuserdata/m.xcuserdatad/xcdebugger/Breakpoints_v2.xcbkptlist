@@ -4,22 +4,6 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RealmVsSqlite/SqliteViewController.swift"
-            timestampString = "458933092.704955"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
@@ -27,102 +11,6 @@
             continueAfterRunningActions = "No"
             scope = "0"
             stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RealmVsSqlite/RealmViewController.swift"
-            timestampString = "459288203.929702"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "function signature specialization &lt;Arg[0] = Owned To Guaranteed&gt; of RealmVsSqlite.RealmViewController.viewDidLoad (RealmVsSqlite.RealmViewController)() -&gt; ()"
-                  moduleName = "RealmVsSqlite"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/m/Dev/realm-vs-sqlite/RealmVsSqlite/RealmViewController.swift"
-                  timestampString = "459287975.851026"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "1560">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "function signature specialization &lt;Arg[1] = Dead, Arg[2] = Value Promoted from InOut&gt; of RealmVsSqlite.RealmViewController.(viewDidLoad (RealmVsSqlite.RealmViewController) -&gt; () -&gt; ()).(closure #2)"
-                  moduleName = "RealmVsSqlite"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/m/Dev/realm-vs-sqlite/RealmVsSqlite/RealmViewController.swift"
-                  timestampString = "459287975.851217"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RealmVsSqlite/RealmViewController.swift"
-            timestampString = "459288203.929702"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "function signature specialization &lt;Arg[0] = Owned To Guaranteed&gt; of RealmVsSqlite.RealmViewController.viewDidLoad (RealmVsSqlite.RealmViewController)() -&gt; ()"
-                  moduleName = "RealmVsSqlite"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/m/Dev/realm-vs-sqlite/RealmVsSqlite/RealmViewController.swift"
-                  timestampString = "459287975.852067"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "200">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RealmVsSqlite.RealmViewController.(viewDidLoad (RealmVsSqlite.RealmViewController) -&gt; () -&gt; ()).(closure #3).(closure #1)"
-                  moduleName = "RealmVsSqlite"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/m/Dev/realm-vs-sqlite/RealmVsSqlite/RealmViewController.swift"
-                  timestampString = "459287975.852219"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

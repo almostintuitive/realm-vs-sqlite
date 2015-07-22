@@ -14,66 +14,67 @@ class RealmViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let realm = Realm()
-    
-    realm.write { () -> Void in
-      realm.deleteAll()
-    }
-    
-    var items = [RandomNumber]()
-    
-    for index in 1 ... 100000 {
-      let rand = RandomNumber()
-      rand.id = index
-      rand.number1 = index
-      rand.number2 = index
-      rand.number3 = index
-      rand.number4 = index
-      rand.number5 = index
-      rand.number6 = index
-      rand.number7 = index
-      rand.number8 = index
-      items.append(rand)
-    }
-    
-    
-    measure("writing on realm", { finish in
-    
-      realm.write({ () -> Void in
-        realm.add(items, update: false)
-      })
-      finish()
-    })
-    
-    println(realm.objects(RandomNumber).count)
-    
-    
-    
-    // updating
-    
+    dispatch_async(GlobalBackgroundQueue) {
 
-    
-    
-    measure("updating on realm", { finish in
+      let realm = Realm()
       
-      realm.write({ () -> Void in
-        for item in items {
-          item.number1 += 1
-          item.number2 += 2
-          item.number3 += 2
-          item.number4 += 2
-          item.number5 += 2
-          item.number6 += 2
-          item.number7 += 2
-          item.number8 += 2
-        }
+      realm.write { () -> Void in
+        realm.deleteAll()
+      }
+      
+      var items = [RandomNumber]()
+      
+      for index in 1 ... 100000 {
+        let rand = RandomNumber()
+        rand.id = index
+        rand.number1 = index
+        rand.number2 = index
+        rand.number3 = index
+        rand.number4 = index
+        rand.number5 = index
+        rand.number6 = index
+        rand.number7 = index
+        rand.number8 = index
+        items.append(rand)
+      }
+      
+      
+      measure("writing on realm", { finish in
+        
+        realm.write({ () -> Void in
+          realm.add(items, update: false)
+        })
+        finish()
       })
-      finish()
-    })
+      
+      println(realm.objects(RandomNumber).count)
+      
+      
+      
+      // updating
+      
+      
+      measure("updating on realm", { finish in
+        
+        realm.write({ () -> Void in
+          for item in items {
+            item.number1 += 1
+            item.number2 += 2
+            item.number3 += 2
+            item.number4 += 2
+            item.number5 += 2
+            item.number6 += 2
+            item.number7 += 2
+            item.number8 += 2
+          }
+        })
+        finish()
+      })
+      
+      println(realm.objects(RandomNumber).count)
+    }
     
-    println(realm.objects(RandomNumber).count)
 
-    
   }
 
 
@@ -98,4 +99,6 @@ final class RandomNumber: Object {
 //    return "id"
 //  }
 }
+
+
 
