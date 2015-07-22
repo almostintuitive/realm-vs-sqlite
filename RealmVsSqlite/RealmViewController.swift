@@ -72,6 +72,16 @@ class RealmViewController: UIViewController {
       })
       
       println(realm.objects(RandomNumber).count)
+      
+      
+      measure("select 10k item", { finish in
+        
+        let results = realm.objects(RandomNumber).filter("id > 10000 AND id < 20000").sorted("id")
+        println(results.count)
+        finish()
+        
+      })
+      
     }
     
 

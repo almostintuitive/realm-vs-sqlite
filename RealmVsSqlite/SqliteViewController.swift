@@ -78,6 +78,19 @@ class SqliteViewController: UIViewController {
       rs2.next()
       
       println(rs2.intForColumn("count"))
+      
+      
+      
+      measure("query on sqlite", { finish in
+        
+        let results = db.executeQuery("SELECT count(*) as count FROM RandomNumber WHERE id BETWEEN 10000 and 20000", withArgumentsInArray: nil)
+        results.next()
+        println(results.intForColumn("count"))
+                
+        finish()
+      })
+      
+      
 
       
       db.close()

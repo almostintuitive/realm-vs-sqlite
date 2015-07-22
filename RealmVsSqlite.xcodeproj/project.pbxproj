@@ -93,9 +93,9 @@
 			children = (
 				0C9878E41B597B6A008F6E0A /* AppDelegate.swift */,
 				0C9878E61B597B6A008F6E0A /* RealmViewController.swift */,
-				0CC3FAEE1B6032770039C0C2 /* GDC.swift */,
 				0C381D6E1B599DCD00BAE37A /* SqliteViewController.swift */,
 				0C381D701B59A2E400BAE37A /* Measure.swift */,
+				0CC3FAEE1B6032770039C0C2 /* GDC.swift */,
 				0C9878E81B597B6A008F6E0A /* Main.storyboard */,
 				0C9878EB1B597B6A008F6E0A /* Images.xcassets */,
 				0C9878ED1B597B6A008F6E0A /* LaunchScreen.xib */,
