@@ -7,46 +7,58 @@
 //
 
 import UIKit
-import SQLite
+
 
 class SqliteViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let db = Database()
-    
-    let numbers = db["RandomNumber"]
-    let id = Expression<Int64>("id")
-    let number1 = Expression<Int64?>("number1")
-    let number2 = Expression<Int64?>("number2")
-    let number3 = Expression<Int64?>("number3")
-    let number4 = Expression<Int64?>("number4")
-    let number5 = Expression<Int64?>("number5")
 
-    db.create(table: numbers) { t in
-      t.column(id, primaryKey: true)
-      t.column(number1)
-      t.column(number2)
-      t.column(number3)
-      t.column(number4)
-      t.column(number5)
-    }
+    let docsDir =
+    NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
+      .UserDomainMask, true)[0] as! String
     
-    db.transaction(.Deferred)
-    measure("writing on realm", { finish in
-      for index in 1 ... 100000 {
-        numbers.insert(id <- Int64(index), number1 <- Int64(index))
+    let databasePath = docsDir.stringByAppendingPathComponent(
+      "contacts.db")
+    
+    let db = FMDatabase(path: databasePath as String)
+    
+    db.open()
+    
+    
+    db.executeStatements("drop table RandomNumber")
+    
+    measure("writing on sqlite", { finish in
+      
+      db.beginTransaction()
+      
+      let sql_stmt = "CREATE TABLE RandomNumber (ID INTEGER PRIMARY KEY, Number1 INTEGER, Number2 INTEGER, Number3 INTEGER, Number4 INTEGER, Number5 INTEGER, Number6 INTEGER, Number7 INTEGER, Number8 INTEGER)"
+      if !db.executeStatements(sql_stmt) {
+        println("Error: \(db.lastErrorMessage())")
       }
+      
+
+      for index in 1 ... 100000 {
+        let insertSQL = "INSERT INTO RandomNumber (id, Number1, Number2, Number3, Number4, Number5, Number6, Number7, Number8) VALUES ('\(index)', '\(index)', '\(index)', '\(index)', '\(index)', '\(index)', '\(index)', '\(index)')"
+        
+        let result = db.executeUpdate(insertSQL, withArgumentsInArray: nil)
+      }
+      
+      db.commit()
+
       finish()
     })
     
-    db.commit(all: true)
+    
+    let rs = db.executeQuery("select count(*) as count from RandomNumber", withArgumentsInArray: nil)
+    rs.next()
+    
+    println(rs.intForColumn("count"))
 
     
+    db.close()
 
-    
-    
   }
   
   

@@ -31,6 +31,7 @@
 /* Begin PBXFileReference section */
 		0C381D6E1B599DCD00BAE37A /* SqliteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SqliteViewController.swift; sourceTree = "<group>"; };
 		0C381D701B59A2E400BAE37A /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
+		0C7F6F871B5A9EB700B13928 /* RealmVsSqlite-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RealmVsSqlite-Bridging-Header.h"; sourceTree = "<group>"; };
 		0C9878DF1B597B6A008F6E0A /* RealmVsSqlite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmVsSqlite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C9878E31B597B6A008F6E0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C9878E41B597B6A008F6E0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 				0C9878EB1B597B6A008F6E0A /* Images.xcassets */,
 				0C9878ED1B597B6A008F6E0A /* LaunchScreen.xib */,
 				0C9878E21B597B6A008F6E0A /* Supporting Files */,
+				0C7F6F871B5A9EB700B13928 /* RealmVsSqlite-Bridging-Header.h */,
 			);
 			path = RealmVsSqlite;
 			sourceTree = "<group>";
@@ -426,9 +428,12 @@
 			baseConfigurationReference = BF4BB946F96558B040C7EC48 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = RealmVsSqlite/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RealmVsSqlite/RealmVsSqlite-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -437,9 +442,11 @@
 			baseConfigurationReference = 0F9DC36518A8C3C51E5CAB63 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = RealmVsSqlite/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RealmVsSqlite/RealmVsSqlite-Bridging-Header.h";
 			};
 			name = Release;
 		};
