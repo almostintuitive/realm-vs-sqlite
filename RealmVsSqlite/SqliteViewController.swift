@@ -29,7 +29,7 @@ class SqliteViewController: UIViewController {
     
     db.executeStatements("drop table RandomNumber")
     
-    measure("writing on sqlite", { finish in
+    measure("inserting on sqlite", { finish in
       
       db.beginTransaction()
       
@@ -40,13 +40,12 @@ class SqliteViewController: UIViewController {
       
 
       for index in 1 ... 100000 {
-        let insertSQL = "INSERT INTO RandomNumber (id, Number1, Number2, Number3, Number4, Number5, Number6, Number7, Number8) VALUES ('\(index)', '\(index)', '\(index)', '\(index)', '\(index)', '\(index)', '\(index)', '\(index)')"
+        let insertSQL = "INSERT INTO RandomNumber (id, Number1, Number2, Number3, Number4, Number5, Number6, Number7, Number8) VALUES ('\(index)', '\(index)', '\(index)', '\(index)', '\(index)', '\(index)', '\(index)', '\(index)', '\(index)')"
         
         let result = db.executeUpdate(insertSQL, withArgumentsInArray: nil)
       }
       
       db.commit()
-
       finish()
     })
     
@@ -55,6 +54,28 @@ class SqliteViewController: UIViewController {
     rs.next()
     
     println(rs.intForColumn("count"))
+
+    
+    
+    measure("updating on sqlite", { finish in
+      
+      db.beginTransaction()
+      
+      for index in 1 ... 100000 {
+        let insertSQL = "UPDATE RandomNumber SET Number1 = \(index+1), Number2 = \(index+1), Number3 = \(index+1), Number4 = \(index+1), Number5 = \(index+1), Number6 = \(index+1), Number7 = \(index+1), Number8 = \(index+1) WHERE id = \(index)"
+        
+        let result = db.executeUpdate(insertSQL, withArgumentsInArray: nil)
+      }
+      
+      db.commit()
+      finish()
+    })
+    
+    
+    let rs2 = db.executeQuery("select count(*) as count from RandomNumber", withArgumentsInArray: nil)
+    rs2.next()
+    
+    println(rs2.intForColumn("count"))
 
     
     db.close()

@@ -20,29 +20,59 @@ class RealmViewController: UIViewController {
       realm.deleteAll()
     }
     
+    var items = [RandomNumber]()
+    
+    for index in 1 ... 100000 {
+      let rand = RandomNumber()
+      rand.id = index
+      rand.number1 = index
+      rand.number2 = index
+      rand.number3 = index
+      rand.number4 = index
+      rand.number5 = index
+      rand.number6 = index
+      rand.number7 = index
+      rand.number8 = index
+      items.append(rand)
+    }
+    
+    
     measure("writing on realm", { finish in
-      
+    
       realm.write({ () -> Void in
-        autoreleasepool({ () -> () in
-          for index in 1 ... 100000 {
-            let rand = RandomNumber()
-            rand.id = index
-            rand.number1 = index
-            rand.number2 = index
-            rand.number3 = index
-            rand.number4 = index
-            rand.number5 = index
-            rand.number6 = index
-            rand.number7 = index
-            rand.number8 = index
-            realm.add(rand, update: false)
-          }
-        })
+        realm.add(items, update: false)
       })
       finish()
     })
     
     println(realm.objects(RandomNumber).count)
+    
+    
+    
+    // updating
+    
+
+    
+    
+    measure("updating on realm", { finish in
+      
+      realm.write({ () -> Void in
+        for item in items {
+          item.number1 += 1
+          item.number2 += 2
+          item.number3 += 2
+          item.number4 += 2
+          item.number5 += 2
+          item.number6 += 2
+          item.number7 += 2
+          item.number8 += 2
+        }
+      })
+      finish()
+    })
+    
+    println(realm.objects(RandomNumber).count)
+
     
   }
 
@@ -50,7 +80,7 @@ class RealmViewController: UIViewController {
 }
 
 
-class RandomNumber: Object {
+final class RandomNumber: Object {
   
   dynamic var id = 0
   
@@ -64,8 +94,8 @@ class RandomNumber: Object {
   dynamic var number8 = 0
 
   
-  override static func primaryKey() -> String? {
-    return "id"
-  }
+//  override static func primaryKey() -> String? {
+//    return "id"
+//  }
 }
 
