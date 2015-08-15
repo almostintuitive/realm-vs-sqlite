@@ -16,6 +16,7 @@
 		0C9878EF1B597B6A008F6E0A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C9878ED1B597B6A008F6E0A /* LaunchScreen.xib */; };
 		0C9878FB1B597B6A008F6E0A /* RealmVsSqliteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9878FA1B597B6A008F6E0A /* RealmVsSqliteTests.swift */; };
 		0CC3FAEF1B6032770039C0C2 /* GDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC3FAEE1B6032770039C0C2 /* GDC.swift */; };
+		0CF6B6461B7FC8CC007E551E /* RandomNumberRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF6B6451B7FC8CC007E551E /* RandomNumberRealm.m */; };
 		42ADF80561CD3B1A8C6FDF91 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E226ED832B90889D8C24FBEC /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,8 @@
 		0C9878F91B597B6A008F6E0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C9878FA1B597B6A008F6E0A /* RealmVsSqliteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmVsSqliteTests.swift; sourceTree = "<group>"; };
 		0CC3FAEE1B6032770039C0C2 /* GDC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GDC.swift; sourceTree = "<group>"; };
+		0CF6B6441B7FC8CC007E551E /* RandomNumberRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomNumberRealm.h; sourceTree = "<group>"; };
+		0CF6B6451B7FC8CC007E551E /* RandomNumberRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomNumberRealm.m; sourceTree = "<group>"; };
 		0F9DC36518A8C3C51E5CAB63 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BF4BB946F96558B040C7EC48 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E226ED832B90889D8C24FBEC /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +96,8 @@
 			children = (
 				0C9878E41B597B6A008F6E0A /* AppDelegate.swift */,
 				0C9878E61B597B6A008F6E0A /* RealmViewController.swift */,
+				0CF6B6441B7FC8CC007E551E /* RandomNumberRealm.h */,
+				0CF6B6451B7FC8CC007E551E /* RandomNumberRealm.m */,
 				0C381D6E1B599DCD00BAE37A /* SqliteViewController.swift */,
 				0C381D701B59A2E400BAE37A /* Measure.swift */,
 				0CC3FAEE1B6032770039C0C2 /* GDC.swift */,
@@ -303,6 +308,7 @@
 				0C9878E51B597B6A008F6E0A /* AppDelegate.swift in Sources */,
 				0C381D711B59A2E400BAE37A /* Measure.swift in Sources */,
 				0C381D6F1B599DCD00BAE37A /* SqliteViewController.swift in Sources */,
+				0CF6B6461B7FC8CC007E551E /* RandomNumberRealm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

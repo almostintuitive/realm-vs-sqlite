@@ -7,12 +7,17 @@
 //
 
 import UIKit
-import RealmSwift
+//import RealmSwift
+import Realm
+
 
 class RealmViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    
+    
     
     dispatch_async(GlobalBackgroundQueue) {
 
