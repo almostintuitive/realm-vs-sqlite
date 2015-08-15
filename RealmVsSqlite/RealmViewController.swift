@@ -39,7 +39,7 @@ class RealmViewController: UIViewController {
       }
       
       
-      measure("writing on realm", { finish in
+      measure("insert on realm", { finish in
         
         realm.write({ () -> Void in
           realm.add(items, update: false)
