@@ -20,14 +20,14 @@ class RealmViewController: UIViewController {
     
     dispatch_async(queue) {
 
-      let realm = RLMRealm(path: NSTemporaryDirectory().stringByAppendingString("tempRealm"))
+      let realm = RLMRealm.defaultRealm()
       
       realm.beginWriteTransaction()
       realm.deleteAllObjects()
       realm.commitWriteTransaction()
       
+
       var items = [RandomNumberObjc]()
-      
       for index in 1 ... 100000 {
         let rand = RandomNumberObjc()
         rand.id = index
