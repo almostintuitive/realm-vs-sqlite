@@ -16,7 +16,7 @@ class RealmSwiftViewController: UIViewController {
     
     dispatch_async(GlobalBackgroundQueue) {
       
-      let realm = Realm()
+      let realm = Realm(path: NSTemporaryDirectory().stringByAppendingString("tempRealmSwift"))
       
       realm.write { () -> Void in
         realm.deleteAll()
@@ -39,7 +39,7 @@ class RealmSwiftViewController: UIViewController {
       }
       
       
-      measure("insert on realm", { finish in
+      measure("insert on realmSwift", { finish in
         
         realm.write({ () -> Void in
           realm.add(items, update: false)
@@ -54,7 +54,7 @@ class RealmSwiftViewController: UIViewController {
       // updating
       
       
-      measure("updating on realm", { finish in
+      measure("updating on realmSwift", { finish in
         
         realm.write({ () -> Void in
           for item in items {
@@ -74,7 +74,7 @@ class RealmSwiftViewController: UIViewController {
       println(realm.objects(RandomNumber).count)
       
       
-      measure("select 10k item", { finish in
+      measure("query (count) with realmSwift", { finish in
         
         let results = realm.objects(RandomNumber).filter("id > 10000 AND id < 20000").sorted("id")
         println(results.count)

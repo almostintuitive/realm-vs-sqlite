@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import RealmSwift
 import Realm
 
 
@@ -21,16 +20,16 @@ class RealmViewController: UIViewController {
     
     dispatch_async(queue) {
 
-      let realm = RLMRealm(path: NSTemporaryDirectory().stringByAppendingString("temp"))
+      let realm = RLMRealm(path: NSTemporaryDirectory().stringByAppendingString("tempRealm"))
       
       realm.beginWriteTransaction()
       realm.deleteAllObjects()
       realm.commitWriteTransaction()
       
-      var items = [RandomNumberRealm]()
+      var items = [RandomNumberObjc]()
       
       for index in 1 ... 100000 {
-        let rand = RandomNumberRealm()
+        let rand = RandomNumberObjc()
         rand.id = index
         rand.number1 = index
         rand.number2 = index
@@ -44,7 +43,7 @@ class RealmViewController: UIViewController {
       }
       
       
-      measure("insert on realm", { finish in
+      measure("insert on realmObjc", { finish in
         
         realm.beginWriteTransaction()
         realm.addObjects(items)
@@ -53,14 +52,14 @@ class RealmViewController: UIViewController {
         finish()
       })
       
-      println( RandomNumberRealm.allObjects().count )
+      println( RandomNumberObjc.allObjects().count )
       
       
       
       // updating
       
       
-      measure("updating on realm", { finish in
+      measure("updating on realmObjc", { finish in
         
         realm.beginWriteTransaction()
         
@@ -80,13 +79,13 @@ class RealmViewController: UIViewController {
         finish()
       })
       
-      println( RandomNumberRealm.allObjects().count )
+      println( RandomNumberObjc.allObjects().count )
       
       
-      measure("select 10k item", { finish in
+      measure("query (count) with realmObjc", { finish in
         
         
-        let results = RandomNumberRealm.objectsWithPredicate(NSPredicate(format: "id >  %i AND id <  %i", 10000, 20000))
+        let results = RandomNumberObjc.objectsWithPredicate(NSPredicate(format: "id >  %i AND id <  %i", 10000, 20000))
         
         println(results.count)
         finish()
@@ -101,7 +100,7 @@ class RealmViewController: UIViewController {
 
 }
 
-class RandomNumberRealm: RLMObject {
+class RandomNumberObjc: RLMObject {
   
   dynamic var id = 0
   

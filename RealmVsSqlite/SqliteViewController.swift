@@ -17,14 +17,7 @@ class SqliteViewController: UIViewController {
 
     dispatch_async(GlobalBackgroundQueue) {
 
-      let docsDir =
-      NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-        .UserDomainMask, true)[0] as! String
-      
-      let databasePath = docsDir.stringByAppendingPathComponent(
-        "contacts.db")
-      
-      let db = FMDatabase(path: databasePath as String)
+      let db = FMDatabase(path: NSTemporaryDirectory().stringByAppendingString("tempSQlite"))
       
       db.open()
       
@@ -81,7 +74,7 @@ class SqliteViewController: UIViewController {
       
       
       
-      measure("query on sqlite", { finish in
+      measure("query (count) with sqlite", { finish in
         
         let results = db.executeQuery("SELECT count(*) as count FROM RandomNumber WHERE id BETWEEN 10000 and 20000", withArgumentsInArray: nil)
         results.next()
