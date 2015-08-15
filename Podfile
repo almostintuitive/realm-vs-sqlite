@@ -1,4 +1,5 @@
 use_frameworks!
 
 pod 'RealmSwift'
-pod 'FMDB', :git => 'https://github.com/robertmryan/fmdb.git'
+pod 'Realm'
+pod 'FMDB', :git => 'https://github.com/ccgus/fmdb', :branch => 'swiftFramework'

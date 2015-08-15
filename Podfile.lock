@@ -4,28 +4,30 @@ PODS:
   - FMDB/common (2.5)
   - FMDB/standard (2.5):
     - FMDB/common
-  - Realm (0.93.2):
-    - Realm/Headers (= 0.93.2)
-  - Realm/Headers (0.93.2)
-  - RealmSwift (0.93.2):
-    - Realm (= 0.93.2)
+  - Realm (0.94.1):
+    - Realm/Headers (= 0.94.1)
+  - Realm/Headers (0.94.1)
+  - RealmSwift (0.94.1):
+    - Realm (= 0.94.1)
 
 DEPENDENCIES:
-  - FMDB (from `https://github.com/robertmryan/fmdb.git`)
+  - FMDB (from `https://github.com/ccgus/fmdb`, branch `swiftFramework`)
+  - Realm
   - RealmSwift
 
 EXTERNAL SOURCES:
   FMDB:
-    :git: https://github.com/robertmryan/fmdb.git
+    :branch: swiftFramework
+    :git: https://github.com/ccgus/fmdb
 
 CHECKOUT OPTIONS:
   FMDB:
-    :commit: b45874924a0b8240abf3f7715af57fc5158616c0
-    :git: https://github.com/robertmryan/fmdb.git
+    :commit: 43881cfcff4aedf5d8ea4045ab21a8f097ed35fa
+    :git: https://github.com/ccgus/fmdb
 
 SPEC CHECKSUMS:
   FMDB: 8e59e93d20d76d0b135db26ecc83ae88d016076d
-  Realm: 2fdd0ae74f730e190384e0338d8a0d3654df8220
-  RealmSwift: 231b064da9f98b1c4f325fe1f1cb8756aae2b8d6
+  Realm: d999a6cf0b41577a077349c9cc9d496cc62a7d17
+  RealmSwift: 06b60ff5b1338755654d39aab44ac38001600f76
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.38.2
