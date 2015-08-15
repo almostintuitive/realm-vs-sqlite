@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C381D6F1B599DCD00BAE37A /* SqliteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C381D6E1B599DCD00BAE37A /* SqliteViewController.swift */; };
 		0C381D711B59A2E400BAE37A /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C381D701B59A2E400BAE37A /* Measure.swift */; };
+		0C8295841B7FD8EC00B51F86 /* RealmSwiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8295831B7FD8EC00B51F86 /* RealmSwiftViewController.swift */; };
 		0C9878E51B597B6A008F6E0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9878E41B597B6A008F6E0A /* AppDelegate.swift */; };
 		0C9878E71B597B6A008F6E0A /* RealmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9878E61B597B6A008F6E0A /* RealmViewController.swift */; };
 		0C9878EA1B597B6A008F6E0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9878E81B597B6A008F6E0A /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		0C381D6E1B599DCD00BAE37A /* SqliteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SqliteViewController.swift; sourceTree = "<group>"; };
 		0C381D701B59A2E400BAE37A /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
 		0C7F6F871B5A9EB700B13928 /* RealmVsSqlite-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RealmVsSqlite-Bridging-Header.h"; sourceTree = "<group>"; };
+		0C8295831B7FD8EC00B51F86 /* RealmSwiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmSwiftViewController.swift; sourceTree = "<group>"; };
 		0C9878DF1B597B6A008F6E0A /* RealmVsSqlite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmVsSqlite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C9878E31B597B6A008F6E0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C9878E41B597B6A008F6E0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			children = (
 				0C9878E41B597B6A008F6E0A /* AppDelegate.swift */,
 				0C9878E61B597B6A008F6E0A /* RealmViewController.swift */,
+				0C8295831B7FD8EC00B51F86 /* RealmSwiftViewController.swift */,
 				0C381D6E1B599DCD00BAE37A /* SqliteViewController.swift */,
 				0C381D701B59A2E400BAE37A /* Measure.swift */,
 				0CC3FAEE1B6032770039C0C2 /* GDC.swift */,
@@ -299,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C8295841B7FD8EC00B51F86 /* RealmSwiftViewController.swift in Sources */,
 				0CC3FAEF1B6032770039C0C2 /* GDC.swift in Sources */,
 				0C9878E71B597B6A008F6E0A /* RealmViewController.swift in Sources */,
 				0C9878E51B597B6A008F6E0A /* AppDelegate.swift in Sources */,

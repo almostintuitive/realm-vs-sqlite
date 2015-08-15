@@ -7,30 +7,25 @@
 //
 
 import UIKit
-//import RealmSwift
-import Realm
+import RealmSwift
 
-
-class RealmViewController: UIViewController {
-
+class RealmSwiftViewController: UIViewController {
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let queue = dispatch_queue_create("db", DISPATCH_QUEUE_SERIAL)
-    
-    
-    dispatch_async(queue) {
-
-      let realm = RLMRealm(path: NSTemporaryDirectory().stringByAppendingString("temp"))
+    dispatch_async(GlobalBackgroundQueue) {
       
-      realm.beginWriteTransaction()
-      realm.deleteAllObjects()
-      realm.commitWriteTransaction()
+      let realm = Realm()
       
-      var items = [RandomNumberRealm]()
+      realm.write { () -> Void in
+        realm.deleteAll()
+      }
+      
+      var items = [RandomNumber]()
       
       for index in 1 ... 100000 {
-        let rand = RandomNumberRealm()
+        let rand = RandomNumber()
         rand.id = index
         rand.number1 = index
         rand.number2 = index
@@ -46,14 +41,13 @@ class RealmViewController: UIViewController {
       
       measure("insert on realm", { finish in
         
-        realm.beginWriteTransaction()
-        realm.addObjects(items)
-        realm.commitWriteTransaction()
-
+        realm.write({ () -> Void in
+          realm.add(items, update: false)
+        })
         finish()
       })
       
-      println( RandomNumberRealm.allObjects().count )
+      println(realm.objects(RandomNumber).count)
       
       
       
@@ -62,32 +56,27 @@ class RealmViewController: UIViewController {
       
       measure("updating on realm", { finish in
         
-        realm.beginWriteTransaction()
-        
-        for item in items {
-          item.number1 += 1
-          item.number2 += 2
-          item.number3 += 2
-          item.number4 += 2
-          item.number5 += 2
-          item.number6 += 2
-          item.number7 += 2
-          item.number8 += 2
-        }
-
-        realm.commitWriteTransaction()
-
+        realm.write({ () -> Void in
+          for item in items {
+            item.number1 += 1
+            item.number2 += 2
+            item.number3 += 2
+            item.number4 += 2
+            item.number5 += 2
+            item.number6 += 2
+            item.number7 += 2
+            item.number8 += 2
+          }
+        })
         finish()
       })
       
-      println( RandomNumberRealm.allObjects().count )
+      println(realm.objects(RandomNumber).count)
       
       
       measure("select 10k item", { finish in
         
-        
-        let results = RandomNumberRealm.objectsWithPredicate(NSPredicate(format: "id >  %i AND id <  %i", 10000, 20000))
-        
+        let results = realm.objects(RandomNumber).filter("id > 10000 AND id < 20000").sorted("id")
         println(results.count)
         finish()
         
@@ -95,13 +84,14 @@ class RealmViewController: UIViewController {
       
     }
     
-
+    
   }
-
-
+  
+  
 }
 
-class RandomNumberRealm: RLMObject {
+
+final class RandomNumber: Object {
   
   dynamic var id = 0
   
@@ -113,10 +103,12 @@ class RandomNumberRealm: RLMObject {
   dynamic var number6 = 0
   dynamic var number7 = 0
   dynamic var number8 = 0
-
   
+  
+  //  override static func primaryKey() -> String? {
+  //    return "id"
+  //  }
 }
-
 
 
 
