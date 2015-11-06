@@ -16,9 +16,9 @@ class RealmSwiftViewController: UIViewController {
     
     dispatch_async(GlobalBackgroundQueue) {
       
-      let realm = Realm(path: NSTemporaryDirectory().stringByAppendingString("tempRealmSwift"))
+      let realm = try! Realm(path: NSTemporaryDirectory().stringByAppendingString("tempRealmSwift"))
       
-      realm.write { () -> Void in
+      try! realm.write { () -> Void in
         realm.deleteAll()
       }
       
@@ -39,24 +39,24 @@ class RealmSwiftViewController: UIViewController {
       }
       
       
-      measure("insert on realmSwift", { finish in
+      measure("insert on realmSwift", block: { finish in
         
-        realm.write({ () -> Void in
+        try! realm.write({ () -> Void in
           realm.add(items, update: false)
         })
         finish()
       })
       
-      println(realm.objects(RandomNumber).count)
+      print(realm.objects(RandomNumber).count)
       
       
       
       // updating
       
       
-      measure("updating on realmSwift", { finish in
+      measure("updating on realmSwift", block: { finish in
         
-        realm.write({ () -> Void in
+        try! realm.write({ () -> Void in
           for item in items {
             item.number1 += 1
             item.number2 += 2
@@ -71,15 +71,25 @@ class RealmSwiftViewController: UIViewController {
         finish()
       })
       
-      println(realm.objects(RandomNumber).count)
+      print(realm.objects(RandomNumber).count)
       
       
-      measure("query (count) with realmSwift", { finish in
+      measure("query (count) with realmSwift", block: { finish in
         
         let results = realm.objects(RandomNumber).filter("id > 10000 AND id < 20000").sorted("id")
-        println(results.count)
+        print(results.count)
         finish()
         
+      })
+      
+      
+      measure("query with realmSwift", block: { finish in
+        
+        var array = [RandomNumber]()
+        
+        let results = realm.objects(RandomNumber)
+        array = results.map( { $0 })
+        print("array count: \(array.count)")
       })
       
     }

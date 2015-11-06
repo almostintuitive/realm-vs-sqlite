@@ -14,6 +14,6 @@ func measure(title: String, block: (() -> ()) -> ()) {
   
   block {
     let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
-    println("\(title):: Time: \(timeElapsed)")
+    print("\(title):: Time: \(timeElapsed)")
   }
 }

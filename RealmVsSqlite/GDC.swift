@@ -10,5 +10,5 @@ import Foundation
 
 
 var GlobalBackgroundQueue: dispatch_queue_t {
-  return dispatch_get_global_queue(Int(QOS_CLASS_BACKGROUND.value), 0)
+  return dispatch_get_global_queue(Int(QOS_CLASS_BACKGROUND.rawValue), 0)
 }

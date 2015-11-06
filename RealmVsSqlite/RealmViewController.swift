@@ -24,7 +24,7 @@ class RealmViewController: UIViewController {
       
       realm.beginWriteTransaction()
       realm.deleteAllObjects()
-      realm.commitWriteTransaction()
+      try! realm.commitWriteTransaction()
       
 
       var items = [RandomNumberObjc]()
@@ -43,23 +43,23 @@ class RealmViewController: UIViewController {
       }
       
       
-      measure("insert on realmObjc", { finish in
+      measure("insert on realmObjc", block: { finish in
         
         realm.beginWriteTransaction()
         realm.addObjects(items)
-        realm.commitWriteTransaction()
+        try! realm.commitWriteTransaction()
 
         finish()
       })
       
-      println( RandomNumberObjc.allObjects().count )
+      print( RandomNumberObjc.allObjects().count )
       
       
       
       // updating
       
       
-      measure("updating on realmObjc", { finish in
+      measure("updating on realmObjc", block: { finish in
         
         realm.beginWriteTransaction()
         
@@ -74,22 +74,36 @@ class RealmViewController: UIViewController {
           item.number8 += 2
         }
 
-        realm.commitWriteTransaction()
+        try! realm.commitWriteTransaction()
 
         finish()
       })
       
-      println( RandomNumberObjc.allObjects().count )
+      print( RandomNumberObjc.allObjects().count )
       
       
-      measure("query (count) with realmObjc", { finish in
+      measure("query (count) with realmObjc", block: { finish in
         
         
         let results = RandomNumberObjc.objectsWithPredicate(NSPredicate(format: "id >  %i AND id <  %i", 10000, 20000))
         
-        println(results.count)
+        print(results.count)
         finish()
         
+      })
+		
+      
+
+      measure("query with realmObjc", block: { finish in
+        
+        var array = [RandomNumberObjc]()
+        
+        let results = RandomNumberObjc.allObjects()
+        for index in 0...results.count-1 {
+          array.append(results[index] as! RandomNumberObjc)
+        }
+        print("array count: \(array.count)")
+
       })
       
     }

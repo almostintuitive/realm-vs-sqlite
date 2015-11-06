@@ -4,11 +4,11 @@ PODS:
   - FMDB/common (2.5)
   - FMDB/standard (2.5):
     - FMDB/common
-  - Realm (0.94.1):
-    - Realm/Headers (= 0.94.1)
-  - Realm/Headers (0.94.1)
-  - RealmSwift (0.94.1):
-    - Realm (= 0.94.1)
+  - Realm (0.96.2):
+    - Realm/Headers (= 0.96.2)
+  - Realm/Headers (0.96.2)
+  - RealmSwift (0.96.2):
+    - Realm (= 0.96.2)
 
 DEPENDENCIES:
   - FMDB (from `https://github.com/ccgus/fmdb`, branch `swiftFramework`)
@@ -27,7 +27,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   FMDB: 8e59e93d20d76d0b135db26ecc83ae88d016076d
-  Realm: d999a6cf0b41577a077349c9cc9d496cc62a7d17
-  RealmSwift: 06b60ff5b1338755654d39aab44ac38001600f76
+  Realm: 3ce8448151c571e90b85002d984d7f93f54fc8a3
+  RealmSwift: 485599fe54e35461c4a0daa7d01d8fbf11424873
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

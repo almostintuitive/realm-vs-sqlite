@@ -17,7 +17,7 @@
 		0C9878EF1B597B6A008F6E0A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C9878ED1B597B6A008F6E0A /* LaunchScreen.xib */; };
 		0C9878FB1B597B6A008F6E0A /* RealmVsSqliteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9878FA1B597B6A008F6E0A /* RealmVsSqliteTests.swift */; };
 		0CC3FAEF1B6032770039C0C2 /* GDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC3FAEE1B6032770039C0C2 /* GDC.swift */; };
-		42ADF80561CD3B1A8C6FDF91 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E226ED832B90889D8C24FBEC /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		42ADF80561CD3B1A8C6FDF91 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E226ED832B90889D8C24FBEC /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,8 +197,9 @@
 		0C9878D71B597B6A008F6E0A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Mark Aron Szulyovszky";
 				TargetAttributes = {
 					0C9878DE1B597B6A008F6E0A = {
@@ -370,6 +371,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -442,9 +444,10 @@
 				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = RealmVsSqlite/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RealmVsSqlite/RealmVsSqlite-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Debug;
 		};
@@ -457,8 +460,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				INFOPLIST_FILE = RealmVsSqlite/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RealmVsSqlite/RealmVsSqlite-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -476,6 +481,7 @@
 				);
 				INFOPLIST_FILE = RealmVsSqliteTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "itchingpixels.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RealmVsSqlite.app/RealmVsSqlite";
 			};
@@ -491,6 +497,7 @@
 				);
 				INFOPLIST_FILE = RealmVsSqliteTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "itchingpixels.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RealmVsSqlite.app/RealmVsSqlite";
 			};
