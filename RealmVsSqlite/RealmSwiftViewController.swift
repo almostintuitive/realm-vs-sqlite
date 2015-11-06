@@ -74,13 +74,13 @@ class RealmSwiftViewController: UIViewController {
       print(realm.objects(RandomNumber).count)
       
       
-      measure("query (count) with realmSwift", block: { finish in
-        
-        let results = realm.objects(RandomNumber).filter("id > 10000 AND id < 20000").sorted("id")
-        print(results.count)
-        finish()
-        
-      })
+//      measure("query (count) with realmSwift", block: { finish in
+//        
+//        let results = realm.objects(RandomNumber).filter("id > 10000 AND id < 20000").sorted("id")
+//        print(results.count)
+//        finish()
+//        
+//      })
       
       
       measure("query with realmSwift", block: { finish in
@@ -90,6 +90,7 @@ class RealmSwiftViewController: UIViewController {
         let results = realm.objects(RandomNumber)
         array = results.map( { $0 })
         print("array count: \(array.count)")
+        finish()
       })
       
     }

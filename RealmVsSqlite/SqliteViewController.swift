@@ -58,9 +58,12 @@ class SqliteViewController: UIViewController {
         db.beginTransaction()
         
         for index in 1 ... 100000 {
-          let insertSQL = "UPDATE RandomNumber SET Number1 = \(index+1), Number2 = \(index+1), Number3 = \(index+1), Number4 = \(index+1), Number5 = \(index+1), Number6 = \(index+1), Number7 = \(index+1), Number8 = \(index+1) WHERE id = \(index)"
           
-          let result = db.executeUpdate(insertSQL, withArgumentsInArray: nil)
+          let indexString = "\(index+1)"
+          
+          let updateSQL = "UPDATE RandomNumber SET Number1 = \(indexString), Number2 = \(indexString), Number3 = \(indexString), Number4 = \(indexString), Number5 = \(indexString), Number6 = \(indexString), Number7 = \(indexString), Number8 = \(indexString) WHERE id = \(index)"
+          
+          let result = db.executeUpdate(updateSQL, withArgumentsInArray: nil)
         }
         
         db.commit()
@@ -75,15 +78,15 @@ class SqliteViewController: UIViewController {
       
       
       
-      measure("query (count) with sqlite", block: { finish in
-        
-        let results = db.executeQuery("SELECT count(*) as count FROM RandomNumber WHERE id BETWEEN 10000 and 20000", withArgumentsInArray: nil)
-        
-        results.next()
-        print(results.intForColumn("count"))
-                
-        finish()
-      })
+//      measure("query (count) with sqlite", block: { finish in
+//        
+//        let results = db.executeQuery("SELECT count(*) as count FROM RandomNumber WHERE id BETWEEN 10000 and 20000", withArgumentsInArray: nil)
+//        
+//        results.next()
+//        print(results.intForColumn("count"))
+//                
+//        finish()
+//      })
       
       measure("query with sqlite", block: { finish in
         

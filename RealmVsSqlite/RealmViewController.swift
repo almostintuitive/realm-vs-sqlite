@@ -30,15 +30,16 @@ class RealmViewController: UIViewController {
       var items = [RandomNumberObjc]()
       for index in 1 ... 100000 {
         let rand = RandomNumberObjc()
+        let indexString = "\(index)"
         rand.id = index
-        rand.number1 = index
-        rand.number2 = index
-        rand.number3 = index
-        rand.number4 = index
-        rand.number5 = index
-        rand.number6 = index
-        rand.number7 = index
-        rand.number8 = index
+        rand.number1 = indexString
+        rand.number2 = indexString
+        rand.number3 = indexString
+        rand.number4 = indexString
+        rand.number5 = indexString
+        rand.number6 = indexString
+        rand.number7 = indexString
+        rand.number8 = indexString
         items.append(rand)
       }
       
@@ -63,15 +64,16 @@ class RealmViewController: UIViewController {
         
         realm.beginWriteTransaction()
         
-        for item in items {
-          item.number1 += 1
-          item.number2 += 2
-          item.number3 += 2
-          item.number4 += 2
-          item.number5 += 2
-          item.number6 += 2
-          item.number7 += 2
-          item.number8 += 2
+        for (index, item) in items.enumerate() {
+          let indexString = "\(index+1)"
+          item.number1 += indexString
+          item.number2 += indexString
+          item.number3 += indexString
+          item.number4 += indexString
+          item.number5 += indexString
+          item.number6 += indexString
+          item.number7 += indexString
+          item.number8 += indexString
         }
 
         try! realm.commitWriteTransaction()
@@ -82,15 +84,15 @@ class RealmViewController: UIViewController {
       print( RandomNumberObjc.allObjects().count )
       
       
-      measure("query (count) with realmObjc", block: { finish in
-        
-        
-        let results = RandomNumberObjc.objectsWithPredicate(NSPredicate(format: "id >  %i AND id <  %i", 10000, 20000))
-        
-        print(results.count)
-        finish()
-        
-      })
+//      measure("query (count) with realmObjc", block: { finish in
+//        
+//        
+//        let results = RandomNumberObjc.objectsWithPredicate(NSPredicate(format: "id >  %i AND id <  %i", 10000, 20000))
+//        
+//        print(results.count)
+//        finish()
+//        
+//      })
 		
       
 
@@ -103,7 +105,7 @@ class RealmViewController: UIViewController {
           array.append(results[index] as! RandomNumberObjc)
         }
         print("array count: \(array.count)")
-
+        finish()
       })
       
     }
@@ -118,14 +120,14 @@ class RandomNumberObjc: RLMObject {
   
   dynamic var id = 0
   
-  dynamic var number1 = 0
-  dynamic var number2 = 0
-  dynamic var number3 = 0
-  dynamic var number4 = 0
-  dynamic var number5 = 0
-  dynamic var number6 = 0
-  dynamic var number7 = 0
-  dynamic var number8 = 0
+  dynamic var number1 = "0"
+  dynamic var number2 = "0"
+  dynamic var number3 = "0"
+  dynamic var number4 = "0"
+  dynamic var number5 = "0"
+  dynamic var number6 = "0"
+  dynamic var number7 = "0"
+  dynamic var number8 = "0"
 
   
 }
