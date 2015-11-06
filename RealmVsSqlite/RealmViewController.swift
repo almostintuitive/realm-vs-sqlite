@@ -108,6 +108,19 @@ class RealmViewController: UIViewController {
         finish()
       })
       
+      
+      measure("query with realmObjc with new objects", block: { finish in
+        
+        var array = [RandomNumberObjcNonRealm]()
+        
+        let results = RandomNumberObjc.allObjects()
+        for index in 0...results.count-1 {
+          array.append(RandomNumberObjcNonRealm(realmObject: results[index] as! RandomNumberObjc))
+        }
+        print("array count: \(array.count)")
+        finish()
+      })
+      
     }
     
 
@@ -128,10 +141,36 @@ class RandomNumberObjc: RLMObject {
   dynamic var number6 = "0"
   dynamic var number7 = "0"
   dynamic var number8 = "0"
-
-  
 }
 
 
 
+
+class RandomNumberObjcNonRealm {
+  
+  var id = 0
+  
+  var number1 = "0"
+  var number2 = "0"
+  var number3 = "0"
+  var number4 = "0"
+  var number5 = "0"
+  var number6 = "0"
+  var number7 = "0"
+  var number8 = "0"
+  
+  init(realmObject: RandomNumberObjc) {
+    self.id = realmObject.id
+    self.number1 = realmObject.number1
+    self.number2 = realmObject.number2
+    self.number3 = realmObject.number3
+    self.number4 = realmObject.number4
+    self.number5 = realmObject.number5
+    self.number6 = realmObject.number6
+    self.number7 = realmObject.number7
+    self.number8 = realmObject.number8
+
+  }
+  
+}
 

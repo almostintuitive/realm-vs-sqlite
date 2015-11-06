@@ -19,5 +19,68 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RealmVsSqlite/SqliteViewController.swift"
+            timestampString = "468500951.574695"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RealmVsSqlite.RandomNumberSqlite.__deallocating_deinit"
+                  moduleName = "RealmVsSqlite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/m/Dev/realm-vs-sqlite/RealmVsSqlite/SqliteViewController.swift"
+                  timestampString = "468500951.591869"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RealmVsSqlite.RandomNumberSqlite.deinit"
+                  moduleName = "RealmVsSqlite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/m/Dev/realm-vs-sqlite/RealmVsSqlite/SqliteViewController.swift"
+                  timestampString = "468500951.592984"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RealmVsSqlite.RandomNumberSqlite.init (RealmVsSqlite.RandomNumberSqlite.Type)() -&gt; RealmVsSqlite.RandomNumberSqlite"
+                  moduleName = "RealmVsSqlite"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/m/Dev/realm-vs-sqlite/RealmVsSqlite/SqliteViewController.swift"
+                  timestampString = "468500951.593122"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

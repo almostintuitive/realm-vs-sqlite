@@ -88,7 +88,24 @@ class SqliteViewController: UIViewController {
 //        finish()
 //      })
       
-      measure("query with sqlite", block: { finish in
+      measure("query with sqlite (dictionaries)", block: { finish in
+        
+        var array = [NSDictionary]()
+        
+        let results = db.executeQuery("SELECT * FROM RandomNumber", withArgumentsInArray: nil)
+        
+        while results.next() {
+          let dictionary = results.resultDictionary()
+          array.append(dictionary)
+        }
+        
+        print("array count: \(array.count)")
+        
+        finish()
+      })
+      
+      
+      measure("query with sqlite (values mapped on object)", block: { finish in
         
         var array = [RandomNumberSqlite]()
         
@@ -105,14 +122,31 @@ class SqliteViewController: UIViewController {
           number.number7 = results.stringForColumnIndex(7)
           number.number8 = results.stringForColumnIndex(8)
           array.append(number)
-//          id, Number1, Number2, Number3, Number4, Number5, Number6, Number7, Number8
         }
         
         print("array count: \(array.count)")
         
         finish()
       })
+
       
+      measure("query with sqlite (values mapped on object with an intermediary dictionary)", block: { finish in
+        
+        var array = [NSDictionary]()
+        
+        let results = db.executeQuery("SELECT * FROM RandomNumber", withArgumentsInArray: nil)
+        
+        while results.next() {
+          let dictionary = results.resultDictionary()
+          array.append(dictionary)
+        }
+        
+        let objectArray = array.map({ RandomNumberSqlite(dictionary: $0) })
+        
+        print("array count: \(objectArray.count)")
+        
+        finish()
+      })
       
 
       
@@ -137,8 +171,19 @@ final class RandomNumberSqlite {
   var number7 = "0"
   var number8 = "0"
   
+  init() {
+    
+  }
   
-  //  override static func primaryKey() -> String? {
-  //    return "id"
-  //  }
+  init(dictionary: NSDictionary) {
+    self.number1 = String(dictionary["Number1"] as! Int)
+    self.number2 = String(dictionary["Number2"] as! Int)
+    self.number3 = String(dictionary["Number3"] as! Int)
+    self.number4 = String(dictionary["Number4"] as! Int)
+    self.number5 = String(dictionary["Number5"] as! Int)
+    self.number6 = String(dictionary["Number6"] as! Int)
+    self.number7 = String(dictionary["Number7"] as! Int)
+    self.number8 = String(dictionary["Number8"] as! Int)
+
+  }
 }
